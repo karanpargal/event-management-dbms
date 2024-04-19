@@ -4,7 +4,7 @@ const express = require("express");
 const userRouter = express.Router();
 const userService = require("./user.services");
 
-router.post("/register", async (req, res) => {
+userRouter.post("/register", async (req, res) => {
   const { username, email, password } = req.body;
   try {
     const user = await userService.createUser(username, email, password);
@@ -14,7 +14,7 @@ router.post("/register", async (req, res) => {
   }
 });
 
-router.get("/:email", async (req, res) => {
+userRouter.get("/:email", async (req, res) => {
   const { email } = req.params;
   try {
     const user = await userService.getUserByEmail(email);
@@ -27,7 +27,7 @@ router.get("/:email", async (req, res) => {
   }
 });
 
-router.get("/:id", async (req, res) => {
+userRouter.get("/:id", async (req, res) => {
   const { id } = req.params;
   try {
     const user = await userService.getUserById(id);
@@ -40,7 +40,7 @@ router.get("/:id", async (req, res) => {
   }
 });
 
-router.put("/:id", async (req, res) => {
+userRouter.put("/:id", async (req, res) => {
   const { id } = req.params;
   const userData = req.body;
   try {
@@ -54,7 +54,7 @@ router.put("/:id", async (req, res) => {
   }
 });
 
-router.delete("/:id", async (req, res) => {
+userRouter.delete("/:id", async (req, res) => {
   const { id } = req.params;
   try {
     const user = await userService.deleteUserById(id);
