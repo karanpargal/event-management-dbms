@@ -22,6 +22,7 @@ const LoginPage = () => {
       if (res.status === 200) {
         setEmail("");
         setPassword("");
+        localStorage.setItem("userId", res.data._id);
         toast.success("User logged in successfully!");
         window.location.href = "/home";
       }
@@ -32,7 +33,7 @@ const LoginPage = () => {
   };
 
   return (
-    <div className="flex justify-center items-center h-screen bg-gray-100 text-left">
+    <div className="flex justify-center items-center min-h-svh text-left">
       <div className="bg-white shadow-lg rounded-lg p-8 w-full max-w-md">
         <Card color="transparent" shadow={false}>
           <Typography variant="h4" color="blue-gray">
@@ -84,7 +85,7 @@ const LoginPage = () => {
               }
               containerProps={{ className: "-ml-2.5" }}
             />
-            <Button className="mt-6" fullWidth onClick={handleLogin}>
+            <Button className="mt-6" fullWidth onClick={handleLogin} color="blue">
               Sign In
             </Button>
             <Typography color="gray" className="mt-4 text-center font-normal">

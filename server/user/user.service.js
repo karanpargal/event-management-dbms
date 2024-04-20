@@ -65,10 +65,27 @@ async function deleteUserById(id) {
   }
 }
 
+async function loginUser(email, password) {
+  try {
+    const user = await User.findOne({ email });
+    if (!user) {
+      throw new Error("User not found");
+    }
+    const isPasswordValid = await bcrypt.compare(password, user.password);
+    if (!isPasswordValid) {
+      throw new Error("Invalid password");
+    }
+    return user;
+  } catch (error) {
+    throw error;
+  }
+}
+
 module.exports = {
   createUser,
   getUserByEmail,
   getUserById,
   updateUserById,
   deleteUserById,
+  loginUser,
 };

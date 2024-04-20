@@ -6,7 +6,7 @@ import Testimonials from "../../components/Landing/Testimonials";
 
 const Landing = () => {
   return (
-    <div>
+    <div className="w-full">
       <Hero />
       <Features />
       <Testimonials />

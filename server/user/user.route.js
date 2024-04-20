@@ -1,8 +1,6 @@
-// user.routes.js
-
 const express = require("express");
 const userRouter = express.Router();
-const userService = require("./user.services");
+const userService = require("./user.service");
 
 userRouter.post("/register", async (req, res) => {
   const { username, email, password } = req.body;
@@ -10,6 +8,24 @@ userRouter.post("/register", async (req, res) => {
     const user = await userService.createUser(username, email, password);
     res.status(201).json(user);
   } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+});
+
+userRouter.post("/login", async (req, res) => {
+  const { email, password } = req.body;
+  try {
+    const user = await userService.loginUser(email, password);
+    if (!user) {
+      return res.status(404).json({ message: "User not found" });
+    }
+    res.status(200).json(user);
+  } catch (error) {
+    if (
+      error.message === "User not found" ||
+      error.message === "Invalid password"
+    )
+      return res.status(404).json({ message: error.message });
     res.status(500).json({ message: error.message });
   }
 });
