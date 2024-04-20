@@ -1,4 +1,4 @@
-<h1 align="center" id="title">Eventify</h1>
+<h1 align="left" id="title">Eventify</h1>
 
 <p align="center"><img src="https://raw.githubusercontent.com/karanpargal/event-management-dbms/main/static/UI-Landing.png" alt="project-image"></p>
 
