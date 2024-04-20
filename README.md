@@ -8,15 +8,19 @@
 
 [https://event-management-dbms.vercel.app/](https://event-management-dbms.vercel.app/)
 
+<h2>ER Diagram:</h2>
+
+<img src="https://raw.githubusercontent.com/karanpargal/event-management-dbms/main/static/ER-diagram.png" alt="project-screenshot" width="1920" >
+
 <h2>Project Screenshots:</h2>
 
-<img src="https://raw.githubusercontent.com/karanpargal/event-management-dbms/main/static/UI-Dashboard.png" alt="project-screenshot" width="1920" height="1080/">
+<img src="https://raw.githubusercontent.com/karanpargal/event-management-dbms/main/static/UI-Dashboard.png" alt="project-screenshot" width="1920" >
 
-<img src="https://raw.githubusercontent.com/karanpargal/event-management-dbms/main/static/UI-All-Events.png" alt="project-screenshot" width="1920" height="1080/">
+<img src="https://raw.githubusercontent.com/karanpargal/event-management-dbms/main/static/UI-All-Events.png" alt="project-screenshot" width="1920" >
 
-<img src="https://raw.githubusercontent.com/karanpargal/event-management-dbms/main/static/UI-Add-Event.png" alt="project-screenshot" width="1920" height="1080/">
+<img src="https://raw.githubusercontent.com/karanpargal/event-management-dbms/main/static/UI-Add-Event.png" alt="project-screenshot" width="1920" >
 
-<img src="https://raw.githubusercontent.com/karanpargal/event-management-dbms/main/static/UI-Single-Event.png" alt="project-screenshot" width="1920" height="1080/">
+<img src="https://raw.githubusercontent.com/karanpargal/event-management-dbms/main/static/UI-Single-Event.png" alt="project-screenshot" width="1920" >
 
   
   
