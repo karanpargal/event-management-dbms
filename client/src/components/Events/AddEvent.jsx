@@ -20,7 +20,7 @@ const AddEventPage = () => {
 
   const fetchVenues = async () => {
     try {
-      const response = await axios.get("http://localhost:8080/venue");
+      const response = await axios.get(`${process.env.REACT_APP_API_URL}/venue`);
       setVenueOptions(response.data);
       console.log("Venues:", response.data);
     } catch (error) {
@@ -30,7 +30,7 @@ const AddEventPage = () => {
 
   const fetchCategories = async () => {
     try {
-      const response = await axios.get("http://localhost:8080/category");
+      const response = await axios.get(`${process.env.REACT_APP_API_URL}/category`);
       setCategoryOptions(response.data);
     } catch (error) {
       console.error("Error fetching categories:", error.message);
@@ -40,7 +40,7 @@ const AddEventPage = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post("http://localhost:8080/event", {
+      const response = await axios.post(`${process.env.REACT_APP_API_URL}/event`, {
         title,
         description,
         startDate,

@@ -22,7 +22,7 @@ const SingleEventPage = () => {
   useEffect(() => {
     const fetchEvent = async () => {
       try {
-        const response = await fetch(`http://localhost:8080/event/${eventId}`);
+        const response = await fetch(`${process.env.REACT_APP_API_URL}/event/${eventId}`);
         const data = await response.json();
         setEvent(data);
       } catch (error) {
@@ -37,7 +37,7 @@ const SingleEventPage = () => {
     const fetchFeedback = async () => {
       try {
         const response = await axios.get(
-          `http://localhost:8080/feedback/event/${eventId}`
+          `${process.env.REACT_APP_API_URL}/feedback/event/${eventId}`
         );
         setEventFeedback(response.data);
       } catch (error) {
@@ -52,7 +52,7 @@ const SingleEventPage = () => {
 
   const handleBookTicket = async () => {
     try {
-      const res = await axios.post("http://localhost:8080/user/participate", {
+      const res = await axios.post(`${process.env.REACT_APP_API_URL}/user/participate`, {
         eventId: event._id,
         userId: localStorage.getItem("userId"),
       });
@@ -66,7 +66,7 @@ const SingleEventPage = () => {
 
   const handleFeedbackSubmit = async () => {
     try {
-      const res = await axios.post("http://localhost:8080/feedback", {
+      const res = await axios.post(`${process.env.REACT_APP_API_URL}/feedback`, {
         eventId: event._id,
         userId: localStorage.getItem("userId"),
         comment: feedback,

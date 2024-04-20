@@ -13,7 +13,7 @@ const Home = () => {
     const fetchRegisteredEvents = async () => {
       try {
         const response = await fetch(
-          "http://localhost:8080/user/" + localStorage.getItem("userId")
+          `${process.env.REACT_APP_API_URL}/user/` + localStorage.getItem("userId")
         );
         const data = await response.json();
         setRegisteredEvents(data.events);
@@ -24,7 +24,7 @@ const Home = () => {
 
     const fetchOngoingEvents = async () => {
       try {
-        const response = await fetch("http://localhost:8080/event/");
+        const response = await fetch(`${process.env.REACT_APP_API_URL}/event/`);
         const data = await response.json();
 
         setOngoingEvents(

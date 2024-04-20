@@ -12,7 +12,7 @@ const VenueForm = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post("http://localhost:8080/venue/", {
+      const response = await axios.post(`${process.env.REACT_APP_API_URL}/venue/`, {
         name,
         address,
         capacity,
