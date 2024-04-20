@@ -10,6 +10,7 @@ import Layout from "./layout/Layout";
 import VenueForm from "./components/Venue/VenueForm";
 import AddEvent from "./components/Events/AddEvent";
 import Events from "./components/Events/Events";
+import SingleEventPage from "./components/Events/SingleEventPage";
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
             <Route path="/add-venue" element={<VenueForm />} />
             <Route path="/add-event" element={<AddEvent />} />
             <Route path="/events" element={<Events />} />
+            <Route path="/events/:eventId" element={<SingleEventPage />} />
           </Routes>
         </Layout>
       </Router>

@@ -1,4 +1,5 @@
 const User = require("./user.schema");
+const Event = require("../event/event.schema");
 const bcrypt = require("bcrypt");
 
 async function createUser(username, email, password) {
@@ -17,7 +18,7 @@ async function createUser(username, email, password) {
 
 async function getUserByEmail(email) {
   try {
-    const user = await User.findOne({ email });
+    const user = await User.findOne({ email }).populate("events");
     if (!user) {
       throw new Error("User not found");
     }
@@ -29,8 +30,9 @@ async function getUserByEmail(email) {
 
 async function getUserById(id) {
   try {
-    const user = await User.findById(id).select("-password");
+    const user = await User.findById(id).select("-password").populate("events");
     if (!user) {
+      console.log("User not found");
       throw new Error("User not found");
     }
     return user;
@@ -67,7 +69,7 @@ async function deleteUserById(id) {
 
 async function loginUser(email, password) {
   try {
-    const user = await User.findOne({ email });
+    const user = await User.findOne({ email }).populate("events");
     if (!user) {
       throw new Error("User not found");
     }
@@ -81,6 +83,27 @@ async function loginUser(email, password) {
   }
 }
 
+async function participateEvent(userId, eventId) {
+  try {
+    const user = await User.findById(userId);
+    if (!user) {
+      throw new Error("User not found");
+    }
+    const event = await Event.findById(eventId);
+    if (!event) {
+      throw new Error("Event not found");
+    }
+    console.log(user, event);
+    user.events.push(eventId);
+    event.participants.push(userId);
+    await user.save();
+    await event.save();
+    return user;
+  } catch (error) {
+    throw error;
+  }
+}
+
 module.exports = {
   createUser,
   getUserByEmail,
@@ -88,4 +111,5 @@ module.exports = {
   updateUserById,
   deleteUserById,
   loginUser,
+  participateEvent,
 };

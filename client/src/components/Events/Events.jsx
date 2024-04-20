@@ -1,12 +1,15 @@
 import React, { useEffect, useState } from "react";
 import { Card, Button, Typography } from "@material-tailwind/react";
 import { timestampParser } from "../../utils/functions";
+import { useNavigate } from "react-router-dom";
 
 const Events = () => {
   const [events, setEvents] = useState([]);
   const [upcomingEvents, setUpcomingEvents] = useState([]);
   const [ongoingEvents, setOngoingEvents] = useState([]);
   const [finishedEvents, setFinishedEvents] = useState([]);
+
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchEvents = async () => {
@@ -62,25 +65,55 @@ const Events = () => {
               {event.description}
             </Typography>
             <div className="flex flex-col gap-2 p-4 text-left">
-              <Typography variant="body" color="gray" className="text-lg font-semibold">
+              <Typography
+                variant="body"
+                color="gray"
+                className="text-lg font-semibold"
+              >
                 Start Date:{" "}
-                <span className="font-normal">{timestampParser(event.startDate)}</span>
+                <span className="font-normal">
+                  {timestampParser(event.startDate)}
+                </span>
               </Typography>
-              <Typography variant="body" color="gray" className="text-lg font-semibold">
+              <Typography
+                variant="body"
+                color="gray"
+                className="text-lg font-semibold"
+              >
                 End Date:{" "}
-                <span className="font-normal">{timestampParser(event.endDate)}</span>
+                <span className="font-normal">
+                  {timestampParser(event.endDate)}
+                </span>
               </Typography>
-              <Typography variant="body" color="gray" className="text-lg font-semibold">
+              <Typography
+                variant="body"
+                color="gray"
+                className="text-lg font-semibold"
+              >
                 Venue: <span className="font-normal">{event.venue.name}</span>
               </Typography>
-              <Typography variant="body" color="gray" className="text-lg font-semibold">
-                Category: <span className="font-normal">{event.category.name}</span>
+              <Typography
+                variant="body"
+                color="gray"
+                className="text-lg font-semibold"
+              >
+                Category:{" "}
+                <span className="font-normal">{event.category.name}</span>
               </Typography>
-              <Typography variant="body" color="gray" className="text-lg font-semibold">
-                Organizer: <span className="font-normal">{event.organizer.username}</span>
+              <Typography
+                variant="body"
+                color="gray"
+                className="text-lg font-semibold"
+              >
+                Organizer:{" "}
+                <span className="font-normal">{event.organizer.username}</span>
               </Typography>
             </div>
-            <Button color="blue" className="mt-4">
+            <Button
+              color="blue"
+              className="mt-4"
+              onClick={() => navigate(`/events/${event._id}`)}
+            >
               View Details
             </Button>
           </Card>
@@ -95,25 +128,55 @@ const Events = () => {
               {event.description}
             </Typography>
             <div className="flex flex-col gap-2 p-4 text-left">
-              <Typography variant="body" color="gray" className="text-lg font-semibold">
+              <Typography
+                variant="body"
+                color="gray"
+                className="text-lg font-semibold"
+              >
                 Start Date:{" "}
-                <span className="font-normal">{timestampParser(event.startDate)}</span>
+                <span className="font-normal">
+                  {timestampParser(event.startDate)}
+                </span>
               </Typography>
-              <Typography variant="body" color="gray" className="text-lg font-semibold">
+              <Typography
+                variant="body"
+                color="gray"
+                className="text-lg font-semibold"
+              >
                 End Date:{" "}
-                <span className="font-normal">{timestampParser(event.endDate)}</span>
+                <span className="font-normal">
+                  {timestampParser(event.endDate)}
+                </span>
               </Typography>
-              <Typography variant="body" color="gray" className="text-lg font-semibold">
+              <Typography
+                variant="body"
+                color="gray"
+                className="text-lg font-semibold"
+              >
                 Venue: <span className="font-normal">{event.venue.name}</span>
               </Typography>
-              <Typography variant="body" color="gray" className="text-lg font-semibold">
-                Category: <span className="font-normal">{event.category.name}</span>
+              <Typography
+                variant="body"
+                color="gray"
+                className="text-lg font-semibold"
+              >
+                Category:{" "}
+                <span className="font-normal">{event.category.name}</span>
               </Typography>
-              <Typography variant="body" color="gray" className="text-lg font-semibold">
-                Organizer: <span className="font-normal">{event.organizer.username}</span>
+              <Typography
+                variant="body"
+                color="gray"
+                className="text-lg font-semibold"
+              >
+                Organizer:{" "}
+                <span className="font-normal">{event.organizer.username}</span>
               </Typography>
             </div>
-            <Button color="blue" className="mt-4">
+            <Button
+              color="blue"
+              className="mt-4"
+              onClick={() =>  navigate(`/events/${event._id}`)}
+            >
               View Details
             </Button>
           </Card>
@@ -128,25 +191,55 @@ const Events = () => {
               {event.description}
             </Typography>
             <div className="flex flex-col gap-2 p-4 text-left">
-              <Typography variant="body" color="gray" className="text-lg font-semibold">
+              <Typography
+                variant="body"
+                color="gray"
+                className="text-lg font-semibold"
+              >
                 Start Date:{" "}
-                <span className="font-normal">{timestampParser(event.startDate)}</span>
+                <span className="font-normal">
+                  {timestampParser(event.startDate)}
+                </span>
               </Typography>
-              <Typography variant="body" color="gray" className="text-lg font-semibold">
+              <Typography
+                variant="body"
+                color="gray"
+                className="text-lg font-semibold"
+              >
                 End Date:{" "}
-                <span className="font-normal">{timestampParser(event.endDate)}</span>
+                <span className="font-normal">
+                  {timestampParser(event.endDate)}
+                </span>
               </Typography>
-              <Typography variant="body" color="gray" className="text-lg font-semibold">
+              <Typography
+                variant="body"
+                color="gray"
+                className="text-lg font-semibold"
+              >
                 Venue: <span className="font-normal">{event.venue.name}</span>
               </Typography>
-              <Typography variant="body" color="gray" className="text-lg font-semibold">
-                Category: <span className="font-normal">{event.category.name}</span>
+              <Typography
+                variant="body"
+                color="gray"
+                className="text-lg font-semibold"
+              >
+                Category:{" "}
+                <span className="font-normal">{event.category.name}</span>
               </Typography>
-              <Typography variant="body" color="gray" className="text-lg font-semibold">
-                Organizer: <span className="font-normal">{event.organizer.username}</span>
+              <Typography
+                variant="body"
+                color="gray"
+                className="text-lg font-semibold"
+              >
+                Organizer:{" "}
+                <span className="font-normal">{event.organizer.username}</span>
               </Typography>
             </div>
-            <Button color="blue" className="mt-4">
+            <Button
+              color="blue"
+              className="mt-4"
+              onClick={() =>  navigate(`/events/${event._id}`)}
+            >
               View Details
             </Button>
           </Card>

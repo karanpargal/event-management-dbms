@@ -52,4 +52,15 @@ feedbackRouter.delete('/:id', async (req, res) => {
     }
 });
 
+feedbackRouter.get('/event/:eventId', async (req, res) => {
+    const { eventId } = req.params;
+    try {
+        const feedback = await feedbackService.getFeedbackByEventId(eventId);
+        res.status(200).json(feedback);
+    } catch (error) {
+        res.status(500).json({ message: error.message });
+    }
+}
+);
+
 module.exports = feedbackRouter;

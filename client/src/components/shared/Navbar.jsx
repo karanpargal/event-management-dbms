@@ -11,7 +11,7 @@ const Navbar = () => {
         <ul className="flex space-x-8">
           <li>
             <Link
-              to="/"
+              to="/home"
               className="text-white hover:underline hover:underline-offset-2"
             >
               Home

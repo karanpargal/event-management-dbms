@@ -30,7 +30,7 @@ userRouter.post("/login", async (req, res) => {
   }
 });
 
-userRouter.get("/:email", async (req, res) => {
+userRouter.get("/email/:email", async (req, res) => {
   const { email } = req.params;
   try {
     const user = await userService.getUserByEmail(email);
@@ -52,6 +52,7 @@ userRouter.get("/:id", async (req, res) => {
     }
     res.status(200).json(user);
   } catch (error) {
+    console.log(error);
     res.status(500).json({ message: error.message });
   }
 });
@@ -77,6 +78,16 @@ userRouter.delete("/:id", async (req, res) => {
     if (!user) {
       return res.status(404).json({ message: "User not found" });
     }
+    res.status(200).json(user);
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+});
+
+userRouter.post("/participate", async (req, res) => {
+  const { eventId, userId } = req.body;
+  try {
+    const user = await userService.participateEvent(userId,eventId);
     res.status(200).json(user);
   } catch (error) {
     res.status(500).json({ message: error.message });
